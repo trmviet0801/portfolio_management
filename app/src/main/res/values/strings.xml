@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Portfolio management</string>
+    <string name="avatar">avatar</string>
+    <string name="hello">Hello</string>
+    <string name="bell">bell</string>
+    <string name="search">search</string>
+    <string name="search_placeholder">Search Here</string>
+    <string name="icon">icon</string>
+    <string name="add_money">Add Money</string>
+    <string name="currencies">Currencies</string>
+    <string name="indices">Indices</string>
+    <string name="ipo">IPO</string>
 </resources>

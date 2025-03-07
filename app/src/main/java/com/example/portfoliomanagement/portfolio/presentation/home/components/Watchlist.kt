@@ -1,9 +1,12 @@
 package com.example.portfoliomanagement.portfolio.presentation.home.components
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -29,13 +32,15 @@ import com.example.portfoliomanagement.ui.theme.PortfolioManagementTheme
 
 @Composable
 fun WatchList(stocks: List<StockPriceUi>) {
-    Column () {
+    Column (
+    ) {
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp)
+
         ) {
             Text(
                 text = stringResource(R.string.your_watchlist),
@@ -61,7 +66,10 @@ fun WatchList(stocks: List<StockPriceUi>) {
                 )
             }
         }
-        LazyColumn {
+        LazyColumn (
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+            modifier = Modifier.fillMaxHeight(0.7f)
+        ) {
             items(stocks) {stock ->
                 WatchlistItem(stock)
             }

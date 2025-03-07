@@ -1,6 +1,8 @@
 package com.example.portfoliomanagement.portfolio.presentation.home.components
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -27,6 +29,7 @@ import com.example.portfoliomanagement.ui.theme.PortfolioManagementTheme
 
 @Composable
 fun SearchBox(keyword: MutableState<String>) {
+    val containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -38,7 +41,8 @@ fun SearchBox(keyword: MutableState<String>) {
                 keyword.value = it
             },
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .border((0.4).dp, MaterialTheme.colorScheme.secondary, RoundedCornerShape(12.dp)),
             shape = RoundedCornerShape(12.dp),
             trailingIcon = {
                 Icon(
@@ -47,10 +51,10 @@ fun SearchBox(keyword: MutableState<String>) {
                 )
             },
             colors = TextFieldDefaults.colors().copy(
-                disabledContainerColor = MaterialTheme.colorScheme.tertiary,
-                unfocusedContainerColor = MaterialTheme.colorScheme.tertiary,
-                focusedContainerColor = MaterialTheme.colorScheme.tertiary,
-                errorContainerColor = MaterialTheme.colorScheme.tertiary,
+                disabledContainerColor = containerColor,
+                unfocusedContainerColor = containerColor,
+                focusedContainerColor = containerColor,
+                errorContainerColor = containerColor,
                 disabledIndicatorColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,

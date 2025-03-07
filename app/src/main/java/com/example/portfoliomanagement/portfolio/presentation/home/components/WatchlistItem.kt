@@ -38,8 +38,9 @@ fun WatchlistItem(stock: StockPriceUi) {
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
             .fillMaxWidth()
-            //.border((0.4).dp, MaterialTheme.colorScheme.secondary, RoundedCornerShape(8.dp))
-            .padding(8.dp),
+            .border((0.4).dp, MaterialTheme.colorScheme.secondary, RoundedCornerShape(8.dp))
+            //.padding(8.dp),
+                ,
         colors = CardDefaults.cardColors().copy(
             containerColor = containerColor
         )

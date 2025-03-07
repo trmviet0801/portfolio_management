@@ -16,4 +16,8 @@
     <string name="chart">Chart</string>
     <string name="your_watchlist">Your Watchlist</string>
     <string name="edit_watchlist">Edit Watchlist</string>
+    <string name="home">Home</string>
+    <string name="trending">Trending</string>
+    <string name="market">Market</string>
+    <string name="profile">Profile</string>
 </resources>

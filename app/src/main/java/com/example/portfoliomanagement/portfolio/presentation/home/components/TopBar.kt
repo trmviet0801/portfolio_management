@@ -62,7 +62,6 @@ fun TopBar(user: User) {
                 Text(
                     text = stringResource(R.string.hello),
                     fontSize = 12.sp,
-                    fontWeight = FontWeight.Thin,
                     color = MaterialTheme.colorScheme.secondary
                 )
                 Text(
@@ -83,7 +82,7 @@ fun TopBar(user: User) {
     }
 }
 
-private val previewUser = User(username = "Fery Pratama")
+val previewUser = User(username = "Fery Pratama")
 
 @PreviewLightDark
 @Composable

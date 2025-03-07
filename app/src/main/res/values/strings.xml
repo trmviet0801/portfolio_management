@@ -10,4 +10,10 @@
     <string name="currencies">Currencies</string>
     <string name="indices">Indices</string>
     <string name="ipo">IPO</string>
+    <string name="your_portfolio">Your Portfolio</string>
+    <string name="see_detail">See Detail</string>
+    <string name="up">Up</string>
+    <string name="chart">Chart</string>
+    <string name="your_watchlist">Your Watchlist</string>
+    <string name="edit_watchlist">Edit Watchlist</string>
 </resources>

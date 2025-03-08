@@ -20,4 +20,5 @@
     <string name="trending">Trending</string>
     <string name="market">Market</string>
     <string name="profile">Profile</string>
+    <string name="setting">Setting</string>
 </resources>

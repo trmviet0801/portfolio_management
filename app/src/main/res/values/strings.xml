@@ -24,4 +24,10 @@
     <string name="arrow_down">Arrow Down</string>
     <string name="see_more">See More</string>
     <string name="arrow_right">Arrow Right</string>
+    <string name="portfolio_value">Portfolio Value</string>
+    <string name="my_portfolio">My Portfolio</string>
+    <string name="add">Add</string>
+    <string name="vnd">VND</string>
+    <string name="change">Change</string>
+    <string name="percent_change">Percent Change</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.portfoliomanagement.portfolio.presentation.utils
 
 import com.example.portfoliomanagement.portfolio.domain.User
+import com.example.portfoliomanagement.portfolio.presentation.model.Portfolio
 import com.example.portfoliomanagement.portfolio.presentation.model.StockPriceUi
 
 val previewUser = User(username = "Fery Pratama")
@@ -57,3 +58,5 @@ val priceStocksPreview = listOf(
         previousClosePrice = 123.123
     )
 )
+
+val portfolioPreview: Portfolio = Portfolio(2125.0, 206.92, 10.6)

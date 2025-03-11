@@ -12,6 +12,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.portfoliomanagement.portfolio.presentation.home.HomeScreen
+import com.example.portfoliomanagement.portfolio.presentation.profile.ProfileScreen
+import com.example.portfoliomanagement.portfolio.presentation.profile.components.ProfileTopBar
 import com.example.portfoliomanagement.portfolio.presentation.trending.TrendingScreen
 import com.example.portfoliomanagement.ui.theme.PortfolioManagementTheme
 
@@ -31,6 +33,9 @@ class MainActivity : ComponentActivity() {
                     }
                     composable("Trending") {
                         TrendingScreen(navController)
+                    }
+                    composable("Profile") {
+                        ProfileScreen(navController)
                     }
                 }
             }

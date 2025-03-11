@@ -21,4 +21,7 @@
     <string name="market">Market</string>
     <string name="profile">Profile</string>
     <string name="setting">Setting</string>
+    <string name="arrow_down">Arrow Down</string>
+    <string name="see_more">See More</string>
+    <string name="arrow_right">Arrow Right</string>
 </resources>

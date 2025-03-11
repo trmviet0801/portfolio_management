@@ -1,5 +1,6 @@
 package com.example.portfoliomanagement.portfolio.presentation.trending.components
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,7 +38,10 @@ fun StockHistoryItem(stock: StockPriceUi) {
         ),
         colors = CardDefaults.cardColors(
             containerColor = containerColor
-        )
+        ),
+        modifier = Modifier
+            .border((0.4).dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(8.dp))
+            .padding(8.dp)
     ) {
         val icon: Int = if (stock.change > 0) R.drawable.up else R.drawable.down
         val contentColor =

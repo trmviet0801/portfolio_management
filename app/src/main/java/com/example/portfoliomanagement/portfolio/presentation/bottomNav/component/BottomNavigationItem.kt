@@ -1,6 +1,7 @@
 package com.example.portfoliomanagement.portfolio.presentation.bottomNav.component
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -33,7 +34,10 @@ fun BottomNavigationItem(
     }
     Column (
         modifier = Modifier
-            .padding(8.dp),
+            .padding(8.dp)
+            .clickable(onClick = {
+                navController?.navigate(name)
+            }),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

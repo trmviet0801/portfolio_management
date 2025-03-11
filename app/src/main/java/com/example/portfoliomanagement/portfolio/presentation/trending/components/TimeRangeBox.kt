@@ -18,8 +18,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,16 +35,14 @@ import com.example.portfoliomanagement.portfolio.presentation.utils.TIME_RANGE
 import com.example.portfoliomanagement.ui.theme.PortfolioManagementTheme
 
 @Composable
-fun TimeRangeBox() {
+fun TimeRangeBox(isShowing: MutableState<Boolean>?) {
     val selectedTimeRange = remember { mutableIntStateOf(TIME_RANGE[0]) }
-    val isShowing = remember { mutableStateOf(false) }
-    val time = if (selectedTimeRange.intValue < 8) "day" else "hour"
     val containerColor = if (isSystemInDarkTheme()) Color.Black else Color.White
     Card(
         modifier = Modifier
             .clickable(
                 onClick = {
-                    isShowing.value = !isShowing.value
+                    isShowing?.value = !isShowing?.value!!
                 }
             )
             .border((0.4).dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(12.dp)),
@@ -53,16 +51,17 @@ fun TimeRangeBox() {
         )
     ) {
         Column(
-            modifier = Modifier.width(70.dp)
+            modifier = Modifier.width(90.dp)
         ) {
             Row(
                 modifier = Modifier
-                    .padding(horizontal = 8.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    .padding(horizontal = 8.dp)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "${selectedTimeRange.value} $time",
+                    text = "${selectedTimeRange.intValue} ${getTimeRangeUnit(selectedTimeRange.intValue)}",
                     color = MaterialTheme.colorScheme.primary,
                     fontSize = 12.sp,
                 )
@@ -74,7 +73,7 @@ fun TimeRangeBox() {
                 )
             }
             AnimatedVisibility(
-                visible = isShowing.value
+                visible = isShowing?.value ?: false
             ) {
                 Column {
                     TIME_RANGE.filter { it != selectedTimeRange.intValue }.forEach {
@@ -84,6 +83,7 @@ fun TimeRangeBox() {
                                 .fillMaxWidth()
                                 .clickable(onClick = {
                                     selectedTimeRange.intValue = it
+                                    isShowing?.value = false
                                 }),
                             colors = CardDefaults.cardColors(
                                 containerColor = containerColor
@@ -95,7 +95,7 @@ fun TimeRangeBox() {
                             ) {
                                 Column {
                                     Text(
-                                        text = "$it $time",
+                                        text = "$it ${getTimeRangeUnit(it)}",
                                         color = MaterialTheme.colorScheme.primary,
                                         fontSize = 12.sp,
                                     )
@@ -110,9 +110,14 @@ fun TimeRangeBox() {
 }
 
 @Composable
+private fun getTimeRangeUnit(timeRange: Int): String {
+    return if (timeRange < 8) stringResource(R.string.day) else stringResource(R.string.hour)
+}
+
+@Composable
 @PreviewLightDark
 private fun TimeRangeBoxPreview() {
     PortfolioManagementTheme {
-        TimeRangeBox()
+        TimeRangeBox(null)
     }
 }

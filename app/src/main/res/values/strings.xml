@@ -30,4 +30,6 @@
     <string name="vnd">VND</string>
     <string name="change">Change</string>
     <string name="percent_change">Percent Change</string>
+    <string name="hour">Hour</string>
+    <string name="day">Day</string>
 </resources>

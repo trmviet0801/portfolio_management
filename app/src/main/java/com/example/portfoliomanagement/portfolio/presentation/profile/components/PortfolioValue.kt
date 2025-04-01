@@ -45,9 +45,6 @@ fun PortfolioValue(portfolio: Portfolio) {
             containerColor = Color.Transparent
         ),
         shape = RoundedCornerShape(12.dp),
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 12.dp
-        )
     ) {
         Column(
             modifier = Modifier

@@ -73,4 +73,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //koin
+    implementation("io.insert-koin:koin-core:3.2.0")  // Koin core for Kotlin
+    implementation("io.insert-koin:koin-android:3.2.0")  // For Android apps (if using Android)
+    implementation("io.insert-koin:koin-androidx-compose:3.2.0")
 }

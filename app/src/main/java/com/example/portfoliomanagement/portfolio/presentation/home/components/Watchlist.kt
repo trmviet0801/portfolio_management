@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -66,11 +67,11 @@ fun WatchList(stocks: List<StockPriceUi>) {
                 )
             }
         }
-        LazyColumn (
+        Column (
             verticalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.fillMaxHeight(0.7f)
+            modifier = Modifier.wrapContentHeight()
         ) {
-            items(stocks) {stock ->
+            stocks.forEach { stock ->
                 WatchlistItem(stock)
             }
         }

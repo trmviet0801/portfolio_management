@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    kotlin("plugin.serialization") version "2.1.20"
 }
 
 android {
@@ -78,4 +80,12 @@ dependencies {
     implementation("io.insert-koin:koin-core:3.2.0")  // Koin core for Kotlin
     implementation("io.insert-koin:koin-android:3.2.0")  // For Android apps (if using Android)
     implementation("io.insert-koin:koin-androidx-compose:3.2.0")
+
+    //ktor
+    implementation("io.ktor:ktor-client-core:3.1.2")
+    implementation("io.ktor:ktor-client-cio:3.1.2")
+    // JSON Serialization
+    implementation("io.ktor:ktor-client-content-negotiation:3.1.2")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.1.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
 }

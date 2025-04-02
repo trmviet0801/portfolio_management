@@ -1,10 +1,19 @@
 package com.example.portfoliomanagement.portfolio.presentation.profile
 
+import android.util.Log
 import androidx.compose.ui.geometry.Size
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.portfoliomanagement.domain.StockDataSource
+import com.example.portfoliomanagement.domain.onError
+import com.example.portfoliomanagement.domain.onSuccess
+import com.example.portfoliomanagement.portfolio.data.RemoteStockDataSource
 import com.example.portfoliomanagement.portfolio.presentation.profile.model.Price
+import kotlinx.coroutines.launch
 
-class ProfileViewModel: ViewModel() {
+class ProfileViewModel(
+    private val stockDataSource: StockDataSource
+): ViewModel() {
     private fun  maxPrice(prices: List<Price>): Price? {
         if (prices.isEmpty())
             return null;
@@ -44,5 +53,13 @@ class ProfileViewModel: ViewModel() {
             positions.add(index, mutableListOf(x, y))
         }
         return positions
+    }
+
+    fun getStock() {
+        viewModelScope.launch {
+            stockDataSource.getStock("nvda").onSuccess { stock ->
+                Log.d("response stock", stock.name)
+            }.onError { error -> Log.d("response stock", error.name) }
+        }
     }
 }

@@ -37,6 +37,10 @@ fun PriceChart(prices: List<Price>) {
     val totalLength =
         Duration.between(prices[0].timestamp, prices[prices.size - 1].timestamp).toMinutes().toInt()
 
+
+    viewModel.getStock()
+
+
     Canvas(
         modifier = Modifier
             .fillMaxWidth()
